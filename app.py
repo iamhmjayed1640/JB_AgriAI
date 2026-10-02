@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import cv2
 import numpy as np
 from PIL import Image
@@ -231,9 +232,14 @@ elif st.session_state.page == "Diagnose":
                         encoder.eval()
                         return encoder
                         
+                    @st.cache_resource
                     def get_cached_prototypes():
-                        torch.manual_seed(42)
-                        return torch.randn(4, 512)
+                        if os.path.exists("prototypes.pt"):
+                            return torch.load("prototypes.pt", map_location="cpu")
+                        else:
+                            st.warning("⚠️ **WARNING:** `prototypes.pt` is missing! The AI is currently making **random guesses** because it has no reference images. Please generate and upload `prototypes.pt` to GitHub.")
+                            torch.manual_seed(42)
+                            return torch.randn(4, 512)
                         
                     encoder = load_model()
                     prototypes = get_cached_prototypes()
@@ -269,9 +275,31 @@ elif st.session_state.page == "Diagnose":
                     with xa1:
                         st.image(image, use_container_width=True)
                     with xa2:
-                        img_np = np.array(image)
-                        heatmap = cv2.applyColorMap(np.uint8(255 * np.random.rand(img_np.shape[0], img_np.shape[1])), cv2.COLORMAP_JET)
+                        # Extract feature maps and calculate Grad-CAM using the closed-form method
+                        with torch.no_grad():
+                            A = encoder.features(input_tensor)
+                            h, w = A.shape[2:]
+                            z = A.mean((2, 3))
+                            
+                            # Real Grad-CAM (Closed Form) for Prototypical Networks
+                            pred_proto = prototypes[pred_idx].unsqueeze(0)
+                            wts = -2.0 * (z - pred_proto) / (h * w)
+                            cam = torch.nn.functional.relu((wts[:, :, None, None] * A).sum(1))
+                            
+                            # Normalize CAM to [0, 1]
+                            cam = cam.squeeze().cpu().numpy()
+                            cam_min, cam_max = cam.min(), cam.max()
+                            if cam_max > cam_min:
+                                cam = (cam - cam_min) / (cam_max - cam_min)
+                            else:
+                                cam = np.zeros_like(cam)
+                                
+                        # Overlay on the original image
+                        img_np = np.array(image.resize((cam.shape[1] * 10, cam.shape[0] * 10))) # Resize for visual
+                        cam_resized = cv2.resize(cam, (img_np.shape[1], img_np.shape[0]))
+                        heatmap = cv2.applyColorMap(np.uint8(255 * cam_resized), cv2.COLORMAP_JET)
                         overlay = cv2.addWeighted(img_np, 0.6, heatmap, 0.4, 0)
+                        
                         st.image(overlay, channels="BGR", use_container_width=True)
                         
                     info = DISEASE_INFO.get(pred_class, DISEASE_INFO["Healthy"])
