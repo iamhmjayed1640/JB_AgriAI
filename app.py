@@ -554,7 +554,7 @@ elif st.session_state.page == "Diagnose":
                         ("Image Processing", "Normalizing & resizing to 84x84"),
                         ("Feature Extraction", "ResNet12 generating feature maps"),
                         ("Attention Analysis", "CBAM highlighting lesion areas"),
-                        ("Prototype Matching", "Projecting to 640D embedding space"),
+                        ("Prototype Matching", "Projecting to 512D embedding space"),
                         ("Disease Classification", "Calculating Euclidean distances"),
                         ("Explainability Generation", "Generating Grad-CAM overlay")
                     ]
@@ -600,7 +600,8 @@ elif st.session_state.page == "Diagnose":
                         
                     def get_cached_prototypes():
                         torch.manual_seed(42)
-                        return torch.randn(4, 640)
+                        # Fix: Changed 640 to 512 to match actual model output dimensions
+                        return torch.randn(4, 512)
                         
                     encoder = load_model()
                     prototypes = get_cached_prototypes()
@@ -799,7 +800,7 @@ elif st.session_state.page == "How It Works":
         </p>
         <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px; margin-top:30px;">2. Prototypical Embedding</h3>
         <p style="color:#52645C; font-size:15px; line-height:1.7;">
-            Instead of using a standard Linear Classification Head, the model projects the attention-refined features into a 640-dimensional metric space. 
+            Instead of using a standard Linear Classification Head, the model projects the attention-refined features into a 512-dimensional metric space. 
             It calculates a "prototype" (mean vector) for each disease class based on the few support samples available.
         </p>
         """, unsafe_allow_html=True)
@@ -807,7 +808,7 @@ elif st.session_state.page == "How It Works":
         st.markdown("""
         <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px;">3. Euclidean Distance Matching</h3>
         <p style="color:#52645C; font-size:15px; line-height:1.7;">
-            The new uploaded leaf (query) is projected into this same 640D space. The system calculates the Euclidean distance between the query image and all stored disease prototypes. 
+            The new uploaded leaf (query) is projected into this same 512D space. The system calculates the Euclidean distance between the query image and all stored disease prototypes. 
             The closest prototype determines the predicted disease, using a Softmax function over the negative distances to generate confidence percentages.
         </p>
         <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px; margin-top:30px;">4. Grad-CAM Explainability</h3>
