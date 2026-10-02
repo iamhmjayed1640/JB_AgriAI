@@ -84,6 +84,43 @@ div[data-testid="stHorizontalBlock"] > div[data-testid="column"] .stButton > but
     min-height: 380px; display: flex; align-items: center; justify-content: center;
 }
 
+/* Prediction Box */
+.result-card {
+    background: #FFFFFF; border-radius: 24px; padding: 40px;
+    box-shadow: 0 20px 40px rgba(11, 61, 46, 0.05);
+    margin: 20px 0; border-left: 12px solid #0B3D2E;
+}
+.class-label { font-size: 14px; font-weight: 700; color: #52645C; text-transform: uppercase; letter-spacing: 2px;}
+.class-name { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; color: #D32F2F; margin: 10px 0 20px 0;}
+
+/* MOBILE RESPONSIVE CSS */
+@media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 36px;
+        line-height: 1.15;
+    }
+    .hero-visual {
+        min-height: 200px;
+    }
+    .result-card {
+        padding: 20px;
+        border-left: 8px solid #0B3D2E;
+    }
+    .class-name {
+        font-size: 32px;
+    }
+    .nav-container {
+        padding: 10px;
+    }
+    div[data-testid="stHorizontalBlock"] {
+        gap: 0 !important;
+    }
+    div[data-testid="stHorizontalBlock"] > div[data-testid="column"] .stButton > button {
+        padding: 8px 10px !important;
+        font-size: 13px !important;
+    }
+}
+
 /* Section titles */
 .section-badge {
     display: inline-block; padding: 5px 14px;
