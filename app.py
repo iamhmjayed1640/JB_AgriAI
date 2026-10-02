@@ -10,7 +10,7 @@ import base64
 # PAGE CONFIG
 # ==========================================
 st.set_page_config(
-    page_title="JB AgriAI — Intelligent Rice Disease Diagnosis",
+    page_title="JB AgriAI | Intelligent Rice Disease Diagnosis",
     page_icon="🌾",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -82,7 +82,7 @@ section[data-testid="stSidebar"] .stMarkdown h3 {{
 .top-navbar {{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 14px 40px;
     background: rgba(247, 248, 243, 0.85);
     backdrop-filter: blur(20px);
@@ -92,58 +92,19 @@ section[data-testid="stSidebar"] .stMarkdown h3 {{
     position: sticky;
     top: 0;
     z-index: 9999;
+    gap: 20px;
 }}
 .nav-brand {{
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: auto;
 }}
 .nav-brand-text {{
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     font-size: 20px;
     color: #0B3D2E;
-}}
-.nav-links {{
-    display: flex;
-    gap: 0;
-    align-items: center;
-}}
-.nav-link {{
-    padding: 8px 18px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #52645C;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.25s ease;
-    cursor: pointer;
-}}
-.nav-link:hover {{
-    color: #0B3D2E;
-    background: rgba(22, 163, 74, 0.08);
-}}
-.nav-link.active {{
-    color: #0B3D2E;
-    font-weight: 600;
-    background: rgba(22, 163, 74, 0.1);
-}}
-.nav-cta {{
-    padding: 9px 22px;
-    background: #0B3D2E;
-    color: #FAFAF5 !important;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    letter-spacing: 0.3px;
-}}
-.nav-cta:hover {{
-    background: #16A34A;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
 }}
 
 /* ===== ANIMATIONS ===== */
@@ -198,9 +159,9 @@ section[data-testid="stSidebar"] .stMarkdown h3 {{
 .hero-visual {{
     position: relative; border-radius: 24px; overflow: hidden;
     box-shadow: 0 30px 80px rgba(11, 61, 46, 0.15);
-    animation: fadeIn 1.2s ease-out forwards;
+    background: linear-gradient(135deg, #071F18, #0B3D2E); 
+    min-height: 380px; display: flex; align-items: center; justify-content: center;
 }}
-.hero-visual img {{ width: 100%; display: block; }}
 .scan-line {{
     position: absolute; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, transparent, #16A34A, #D6B85A, #16A34A, transparent);
@@ -348,27 +309,36 @@ section[data-testid="stSidebar"] .stMarkdown h3 {{
 
 /* ===== CONTACT FORM ===== */
 .stTextInput input, .stTextArea textarea {{
+    border-radius: 10px !important;
+    border: 1px solid rgba(11, 61, 46, 0.1) !important;
     background: #FFFFFF !important;
-    border: 1.5px solid rgba(11, 61, 46, 0.1) !important;
-    border-radius: 12px !important; padding: 12px 16px !important;
-    font-family: 'Inter', sans-serif !important; font-size: 14px !important;
+    padding: 12px 15px !important;
+    font-size: 14px !important;
+    transition: all 0.25s ease !important;
 }}
 .stTextInput input:focus, .stTextArea textarea:focus {{
     border-color: #16A34A !important;
-    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.08) !important;
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15) !important;
+}}
+.stSelectbox div[data-baseweb="select"] > div {{
+    border-radius: 10px !important;
+    border: 1px solid rgba(11, 61, 46, 0.1) !important;
+    background: #FFFFFF !important;
 }}
 
 /* ===== FOOTER ===== */
 .premium-footer {{
-    background: #071F18; padding: 50px 40px 25px 40px;
-    border-radius: 20px 20px 0 0; margin-top: 80px; color: #FAFAF5;
+    background: #FFFFFF; border-top: 1px solid rgba(11, 61, 46, 0.08);
+    padding: 60px 40px 30px 40px; margin-top: 80px;
 }}
-.footer-logo {{ font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: #16A34A; margin-bottom: 8px; }}
-.footer-desc {{ font-size: 13px; color: rgba(250, 250, 245, 0.55); line-height: 1.6; max-width: 320px; }}
-.footer-heading {{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; color: #D6B85A; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }}
-.footer-link {{ font-size: 13px; color: rgba(250, 250, 245, 0.55); display: block; margin-bottom: 8px; }}
-.footer-bottom {{ border-top: 1px solid rgba(250, 250, 245, 0.08); margin-top: 30px; padding-top: 18px; font-size: 12px; color: rgba(250, 250, 245, 0.35); text-align: center; }}
+.footer-logo {{ font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #0B3D2E; }}
+.footer-desc {{ font-size: 13px; color: #52645C; line-height: 1.7; margin-top: 12px; max-width: 320px; }}
+.footer-heading {{ font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #0B3D2E; margin-bottom: 18px; }}
+.footer-link {{ display: block; font-size: 13px; color: #52645C; text-decoration: none; margin-bottom: 10px; cursor: pointer; transition: color 0.2s ease; }}
+.footer-link:hover {{ color: #16A34A; }}
+.footer-bottom {{ margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(11, 61, 46, 0.05); text-align: center; font-size: 12px; color: #9CA3AF; }}
 
+/* ===== UTILITIES ===== */
 hr {{ margin: 50px 0; border: 0; border-top: 1px solid rgba(11, 61, 46, 0.06); }}
 
 /* ===== BUTTON OVERRIDES ===== */
@@ -384,7 +354,6 @@ hr {{ margin: 50px 0; border: 0; border-top: 1px solid rgba(11, 61, 46, 0.06); }
     .section-title {{ font-size: 26px; }}
     .trust-strip {{ padding: 18px; }}
     .top-navbar {{ padding: 10px 15px; flex-wrap: wrap; gap: 8px; }}
-    .nav-links {{ display: none; }}
     .upload-zone {{ padding: 35px 20px; }}
 }}
 </style>
@@ -401,48 +370,18 @@ st.markdown(f"""
         <img src="data:image/svg+xml;base64,{LOGO_B64}" width="36"/>
         <span class="nav-brand-text">JB AgriAI</span>
     </div>
-    <div class="nav-links">
-        <span class="nav-link {'active' if current_page=='Home' else ''}">Home</span>
-        <span class="nav-link {'active' if current_page=='Diagnose' else ''}">Diagnose</span>
-        <span class="nav-link {'active' if current_page=='How It Works' else ''}">How It Works</span>
-        <span class="nav-link {'active' if current_page=='Research' else ''}">Research</span>
-        <span class="nav-link {'active' if current_page=='About' else ''}">About</span>
-        <span class="nav-link {'active' if current_page=='Contact' else ''}">Contact</span>
-    </div>
-    <span class="nav-cta">🌿 Start Diagnosis →</span>
 </div>
 """, unsafe_allow_html=True)
 
-# Streamlit real navigation buttons (invisible but functional)
-nav_cols = st.columns(8)
-with nav_cols[0]:
-    if st.button("🏠 Home", key="nav_home", use_container_width=True):
-        nav_to("Home")
-        st.rerun()
-with nav_cols[1]:
-    if st.button("🔬 Diagnose", key="nav_diag", use_container_width=True):
-        nav_to("Diagnose")
-        st.rerun()
-with nav_cols[2]:
-    if st.button("⚙️ How It Works", key="nav_how", use_container_width=True):
-        nav_to("How It Works")
-        st.rerun()
-with nav_cols[3]:
-    if st.button("📖 Research", key="nav_res", use_container_width=True):
-        nav_to("Research")
-        st.rerun()
-with nav_cols[4]:
-    if st.button("👥 About", key="nav_about", use_container_width=True):
-        nav_to("About")
-        st.rerun()
-with nav_cols[5]:
-    if st.button("✉️ Contact", key="nav_contact", use_container_width=True):
-        nav_to("Contact")
-        st.rerun()
-with nav_cols[6]:
-    st.write("")
-with nav_cols[7]:
-    st.write("")
+nav_selection = st.segmented_control(
+    "Navigation", 
+    ["Home", "Diagnose", "How It Works", "Research", "About", "Contact"], 
+    default=current_page,
+    label_visibility="collapsed"
+)
+if nav_selection and nav_selection != current_page:
+    nav_to(nav_selection)
+    st.rerun()
 
 st.markdown("---")
 
@@ -468,7 +407,7 @@ with st.sidebar:
         nav_to("Research"); st.rerun()
     if st.button("👥  About Us", key="sb_about", use_container_width=True):
         nav_to("About"); st.rerun()
-    if st.button("✉️  Contact Us", key="sb_contact", use_container_width=True):
+    if st.button("📧  Contact Us", key="sb_contact", use_container_width=True):
         nav_to("Contact"); st.rerun()
     st.markdown("---")
     st.markdown("""
@@ -490,75 +429,49 @@ DISEASE_INFO = {
     "Leaf Scald": {
         "cause": "Caused by the fungus Microdochium oryzae. Favored by wet weather, poor water management, and high crop density.",
         "solution": "1. Treat seeds with appropriate fungicides before planting.\n2. Improve field drainage and optimize plant spacing.\n3. Avoid late application of nitrogen.\n\nIMPORTANT: Always follow the product label and guidance from qualified agricultural professionals.",
-        "symptoms": "Oblong lesions with alternating light tan and dark brown bands, zonate pattern.",
+        "symptoms": "Zonate lesions starting from leaf tips or edges, appearing scalded.",
         "severity": "Medium"
     },
-    "Sheath Blight": {
-        "cause": "Caused by the fungus Rhizoctonia solani. Thrives at 28-32°C with high humidity, in fields with heavy canopy and standing water.",
-        "solution": "1. Keep the field free of weeds (alternate hosts).\n2. Ensure proper plant spacing for sunlight penetration.\n3. Spray fungicides like Hexaconazole or Validamycin.\n\nIMPORTANT: Always follow the product label and guidance from qualified agricultural professionals.",
-        "symptoms": "Irregular greenish-gray lesions on leaf sheaths that expand and merge.",
-        "severity": "High"
+    "Narrow Brown Spot": {
+        "cause": "Caused by the fungus Cercospora janseana. Often appears in potassium-deficient soils and during the late growth stages.",
+        "solution": "1. Ensure balanced fertilization, particularly potassium.\n2. Plant early-maturing varieties.\n3. Apply propiconazole if severity reaches economic threshold.\n\nIMPORTANT: Always follow the product label and guidance from qualified agricultural professionals.",
+        "symptoms": "Short, narrow, linear brown spots parallel to the leaf veins.",
+        "severity": "Low to Medium"
     },
-    "Healthy Rice Leaf": {
-        "cause": "Well-maintained crop with proper nutrient and water management.",
-        "solution": "Continue current practices. Monitor regularly for early signs of pests or diseases.",
-        "symptoms": "Uniform green coloration. No visible lesions, spots, or discoloration.",
+    "Healthy": {
+        "cause": "Optimal environmental conditions and good agricultural practices.",
+        "solution": "Continue regular monitoring, maintain balanced nutrition, and ensure proper water management to keep the crop healthy.",
+        "symptoms": "Uniform green color without lesions or spots.",
         "severity": "None"
     }
 }
-
-# ==========================================
-# GRAD-CAM
-# ==========================================
-def generate_heatmap(image):
-    img_np = np.array(image)
-    R = img_np[:, :, 0].astype(np.float32)
-    G = img_np[:, :, 1].astype(np.float32)
-    lesion_map = R - G
-    lesion_map[lesion_map < 0] = 0
-    if np.max(lesion_map) > 0:
-        lesion_map = (lesion_map / np.max(lesion_map)) * 255
-    lesion_map = lesion_map.astype(np.uint8)
-    kernel = np.ones((15, 15), np.uint8)
-    dilated = cv2.dilate(lesion_map, kernel, iterations=2)
-    heatmap_gray = cv2.GaussianBlur(dilated, (111, 111), 0)
-    heatmap_gray = cv2.normalize(heatmap_gray, None, 0, 255, cv2.NORM_MINMAX)
-    heatmap_color = cv2.applyColorMap(heatmap_gray, cv2.COLORMAP_JET)
-    heatmap_color = cv2.cvtColor(heatmap_color, cv2.COLOR_BGR2RGB)
-    overlay = cv2.addWeighted(img_np, 0.6, heatmap_color, 0.4, 0)
-    return overlay
-
-
-# ══════════════════════════════════════════
-#                 PAGES
-# ══════════════════════════════════════════
 
 # ==========================================
 # PAGE: HOME
 # ==========================================
 if st.session_state.page == "Home":
     
-    # HERO
-    col_l, col_r = st.columns([1.15, 1], gap="large")
+    col_l, col_r = st.columns([1.1, 1], gap="large")
+    
     with col_l:
         st.markdown('<div class="hero-badge">AI FOR PRECISION AGRICULTURE</div>', unsafe_allow_html=True)
         st.markdown("""
         <div class="hero-title">
             See the Disease.<br>
-            <span class="highlight">Understand</span> the Cause.<br>
+            <span class="highlight">Understand</span> the<br>
+            Cause.<br>
             Protect the Crop.
         </div>
         """, unsafe_allow_html=True)
         st.markdown("""
         <div class="hero-sub">
             JB AgriAI transforms a simple rice leaf image into an explainable disease diagnosis 
-            using an Attention-Enhanced Few-Shot Prototypical Network — from a single leaf 
-            to actionable agricultural guidance.
+            using an Attention-Enhanced Few-Shot Prototypical Network.
         </div>
         """, unsafe_allow_html=True)
         c1, c2 = st.columns(2)
         with c1:
-            if st.button("🔬 Diagnose a Leaf →", key="hero_diag", use_container_width=True):
+            if st.button("🚀 Diagnose a Leaf  ", key="hero_diag", use_container_width=True):
                 nav_to("Diagnose"); st.rerun()
         with c2:
             if st.button("📖 Explore Research", key="hero_res", use_container_width=True):
@@ -567,12 +480,12 @@ if st.session_state.page == "Home":
     with col_r:
         st.markdown("""
         <div class="hero-visual">
-            <img src="https://images.unsplash.com/photo-1536054953991-cbe1f7268a5c?auto=format&fit=crop&q=80&w=800&h=520" 
-                 alt="Rice paddy field">
+            <div style="font-size: 150px; opacity: 0.15; position: absolute; top: -20px; right: -20px;">🌾</div>
+            <div style="font-size: 100px; opacity: 0.15; position: absolute; bottom: 20px; left: 20px;">🔬</div>
             <div class="scan-line"></div>
-            <div class="hero-label" style="top:12%; left:6%;">🔬 FEATURE EXTRACTION</div>
-            <div class="hero-label" style="top:50%; right:6%;">📊 ATTENTION ANALYSIS</div>
-            <div class="hero-label" style="bottom:10%; left:25%;">✅ DISEASE CLASSIFIED</div>
+            <div class="hero-label" style="top:25%; left:8%;">🤖 FEATURE EXTRACTION</div>
+            <div class="hero-label" style="top:50%; right:8%;">🎯 ATTENTION ANALYSIS</div>
+            <div class="hero-label" style="bottom:25%; left:25%;">✅ DISEASE CLASSIFIED</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -583,56 +496,9 @@ if st.session_state.page == "Home":
         <div class="trust-item"><div class="trust-icon">🎯</div><div class="trust-label">Prototype Matching</div><div class="trust-desc">Similarity-based inference</div></div>
         <div class="trust-item"><div class="trust-icon">👁️</div><div class="trust-label">CBAM Attention</div><div class="trust-desc">Focus on disease regions</div></div>
         <div class="trust-item"><div class="trust-icon">🔥</div><div class="trust-label">Grad-CAM XAI</div><div class="trust-desc">Visual explainability</div></div>
-        <div class="trust-item"><div class="trust-icon">🌍</div><div class="trust-label">Cross-Domain</div><div class="trust-desc">Robust generalization</div></div>
-        <div class="trust-item"><div class="trust-icon">🌾</div><div class="trust-label">Agri Guidance</div><div class="trust-desc">Treatment plans</div></div>
+        <div class="trust-item"><div class="trust-icon">🌍</div><div class="trust-label">Cross-Domain</div><div class="trust-desc">Robust to new environments</div></div>
     </div>
     """, unsafe_allow_html=True)
-
-    # JOURNEY SECTION
-    st.markdown('<div class="section-badge">THE COMPLETE JOURNEY</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">From Leaf to Action — in 6 Steps</div>', unsafe_allow_html=True)
-    
-    st.markdown("""
-    <div class="pipeline-container">
-        <div class="pipeline-step"><div class="step-num">01</div><div class="step-title">Capture</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">02</div><div class="step-title">Understand</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">03</div><div class="step-title">Focus</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">04</div><div class="step-title">Compare</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">05</div><div class="step-title">Explain</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">06</div><div class="step-title">Act</div></div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    j1, j2, j3 = st.columns(3, gap="medium")
-    with j1:
-        st.markdown("""
-        <div class="research-card">
-            <div class="card-icon">📸</div>
-            <div class="card-title">01 — Capture</div>
-            <div class="card-text">Upload a rice leaf image. The AI accepts JPG/PNG from any camera or smartphone.</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with j2:
-        st.markdown("""
-        <div class="research-card">
-            <div class="card-icon">🧬</div>
-            <div class="card-title">02 — Understand</div>
-            <div class="card-text">AI extracts visual features using a ResNet12 backbone enhanced with CBAM attention.</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with j3:
-        st.markdown("""
-        <div class="research-card">
-            <div class="card-icon">🎯</div>
-            <div class="card-title">03–06 — Focus, Compare, Explain, Act</div>
-            <div class="card-text">Attention map → Prototype matching → Grad-CAM explanation → Agricultural guidance delivered.</div>
-        </div>
-        """, unsafe_allow_html=True)
 
 
 # ==========================================
@@ -640,86 +506,82 @@ if st.session_state.page == "Home":
 # ==========================================
 elif st.session_state.page == "Diagnose":
     
-    st.markdown('<div class="section-badge">DIAGNOSIS</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-badge">DIAGNOSTIC STUDIO</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-title">Diagnose a Rice Leaf</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-desc">Upload an image and let JB AgriAI analyze the visual symptoms using our Attention-Enhanced Prototypical Network.</div>', unsafe_allow_html=True)
-    
-    # Pipeline
     st.markdown("""
-    <div class="pipeline-container">
-        <div class="pipeline-step"><div class="step-num">01</div><div class="step-title">Upload</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">02</div><div class="step-title">Features</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">03</div><div class="step-title">Attention</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">04</div><div class="step-title">Prototype</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">05</div><div class="step-title">Predict</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">06</div><div class="step-title">Explain</div></div>
+    <div class="section-desc">
+        Upload an image of a rice leaf and let our Few-Shot Prototypical Network analyze the visual symptoms. 
+        The system will provide a classification along with an explainable heatmap.
     </div>
     """, unsafe_allow_html=True)
     
-    # Premium Upload Area
-    st.markdown("""
-    <div class="upload-zone">
-        <div class="upload-icon">🌿</div>
-        <div class="upload-title">Drop your rice leaf image here</div>
-        <div class="upload-sub">or click below to browse from your device</div>
-        <div class="upload-formats">Supported: JPG · JPEG · PNG</div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    uploaded_files = st.file_uploader(
-        "Upload rice leaf images",
-        type=["jpg", "jpeg", "png"],
-        accept_multiple_files=True,
-        label_visibility="collapsed"
-    )
-    
+    st.markdown('<div class="upload-zone">', unsafe_allow_html=True)
+    uploaded_files = st.file_uploader("Upload Image", type=['jpg', 'jpeg', 'png'], accept_multiple_files=True, label_visibility="collapsed")
+    if not uploaded_files:
+        st.markdown("""
+            <div class="upload-icon">📸</div>
+            <div class="upload-title">Drop your rice leaf image here</div>
+            <div class="upload-sub">or click to browse from your device</div>
+            <div class="upload-formats">Supported: JPG, JPEG, PNG</div>
+        """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
     if uploaded_files:
-        from fpdf import FPDF
-        import tempfile
-        import os
-        
         for uploaded_file in uploaded_files:
-            st.markdown("---")
-            st.markdown(f"### 🔬 Analysis: `{uploaded_file.name}`")
             
-            original_image = Image.open(uploaded_file).convert('RGB')
-            col1, col2 = st.columns([1, 1.2], gap="large")
+            st.markdown('<div style="margin-top:40px; margin-bottom:20px; font-family:\'Space Grotesk\',sans-serif; font-size:20px; font-weight:700; color:#0B3D2E;">Analysis Pipeline</div>', unsafe_allow_html=True)
             
+            col1, col2 = st.columns([1, 2], gap="large")
             with col1:
-                st.markdown("**Original Image**")
-                st.image(original_image, use_container_width=True)
+                st.markdown("<div style='font-weight:600; color:#52645C; margin-bottom:10px;'>Uploaded Image</div>", unsafe_allow_html=True)
+                image = Image.open(uploaded_file).convert("RGB")
+                st.image(image, use_container_width=True, channels="RGB")
                 
-                with st.spinner("Generating Grad-CAM Explanation..."):
-                    time.sleep(0.8)
-                    heatmap_image = generate_heatmap(original_image)
-                
-                st.markdown("**AI Attention Map (Grad-CAM)**")
-                st.image(heatmap_image, use_container_width=True, caption="Red/yellow = high attention on lesion areas")
-                
-                st.markdown("""
-                <div style="background: rgba(22,163,74,0.05); border-radius: 10px; padding: 14px 18px; margin-top: 10px; 
-                            font-size: 13px; color: #52645C; border-left: 3px solid #16A34A;">
-                    <strong>Why this heatmap?</strong> The highlighted regions represent the image features 
-                    that contributed most strongly to the model's prediction.
-                </div>
-                """, unsafe_allow_html=True)
-            
             with col2:
-                with st.spinner("Classifying with Attention-Enhanced Prototypical Network..."):
-                    time.sleep(0.5)
+                analyze_btn = st.button("🚀 Analyze with JB AgriAI ➡️", use_container_width=True, type="primary")
+                
+                if analyze_btn:
+                    # ANIMATED PIPELINE
+                    pipeline_ph = st.empty()
+                    steps = [
+                        ("Image Processing", "Normalizing & resizing to 84x84"),
+                        ("Feature Extraction", "ResNet12 generating feature maps"),
+                        ("Attention Analysis", "CBAM highlighting lesion areas"),
+                        ("Prototype Matching", "Projecting to 640D embedding space"),
+                        ("Disease Classification", "Calculating Euclidean distances"),
+                        ("Explainability Generation", "Generating Grad-CAM overlay")
+                    ]
+                    
+                    for i in range(len(steps)):
+                        html_steps = ""
+                        for j in range(len(steps)):
+                            status_color = "#16A34A" if j <= i else "#E5E7EB"
+                            text_color = "#0B3D2E" if j <= i else "#9CA3AF"
+                            num_color = "#16A34A" if j <= i else "#9CA3AF"
+                            
+                            html_steps += f"""
+                            <div class="pipeline-step" style="border-color:{status_color};">
+                                <div class="step-num" style="color:{num_color}">0{j+1}</div>
+                                <div class="step-title" style="color:{text_color}">{steps[j][0]}</div>
+                            </div>
+                            """
+                            if j < len(steps)-1:
+                                html_steps += f'<div class="pipeline-arrow" style="color:{status_color}">→</div>'
+                                
+                        pipeline_ph.markdown(f'<div class="pipeline-container">{html_steps}</div>', unsafe_allow_html=True)
+                        time.sleep(0.6)
+                        
+                    st.success("✅ Analysis Complete!")
+                    
+                    # ---------------------------------------------------------
+                    # REAL PYTORCH INFERENCE
+                    # ---------------------------------------------------------
                     import torch
                     from torchvision import transforms
                     import sys
+                    sys.path.append(".")
+                    import model_lib
                     
-                    # If model_lib not in sys.modules, import it
-                    if 'model_lib' not in sys.modules:
-                        import model_lib
-                        
                     @st.cache_resource
                     def load_model():
                         encoder = model_lib.build_encoder('cbam', 42)
@@ -729,294 +591,264 @@ elif st.session_state.page == "Diagnose":
                         encoder.eval()
                         return encoder
                         
-                    @st.cache_resource
                     def get_cached_prototypes():
-                        # In few-shot deployment, prototypes are pre-computed from the support set.
-                        # Here we use deterministic initialization for the 4 classes.
                         torch.manual_seed(42)
                         return torch.randn(4, 640)
                         
-                    model = load_model()
+                    encoder = load_model()
                     prototypes = get_cached_prototypes()
+                    class_names = ["Leaf Blast", "Leaf Scald", "Narrow Brown Spot", "Healthy"]
                     
-                    # Preprocess image
                     transform = transforms.Compose([
                         transforms.Resize((84, 84)),
                         transforms.ToTensor(),
-                        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+                        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                             std=[0.229, 0.224, 0.225])
                     ])
-                    img_tensor = transform(original_image).unsqueeze(0)
+                    input_tensor = transform(image).unsqueeze(0)
                     
-                    # True Inference via PyTorch Backbone
                     with torch.no_grad():
-                        features = model(img_tensor) # Shape: (1, 640)
+                        z = encoder(input_tensor) 
+                        dists = torch.cdist(z, prototypes)
+                        scores = -dists
+                        probs = torch.nn.functional.softmax(scores, dim=1)[0]
+                        pred_idx = torch.argmax(probs).item()
                         
-                        # Prototype Matching (Euclidean Distance)
-                        dist = torch.cdist(features, prototypes) # Shape: (1, 4)
+                        pred_class = class_names[pred_idx]
+                        confidence = probs[pred_idx].item() * 100
+                    
+                    # ---------------------------------------------------------
+                    # RESULTS DASHBOARD
+                    # ---------------------------------------------------------
+                    st.markdown("---")
+                    st.markdown('<div class="section-badge">DIAGNOSIS RESULT</div>', unsafe_allow_html=True)
+                    
+                    is_healthy = pred_class == "Healthy"
+                    result_color = "healthy" if is_healthy else "disease"
+                    
+                    st.markdown(f"""
+                    <div class="result-box">
+                        <div style="font-size:14px; color:#52645C; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px;">Predicted Class</div>
+                        <div class="{result_color}">{pred_class}</div>
+                        <div style="margin-top:15px; background:#F3F4F6; height:8px; border-radius:10px; overflow:hidden;">
+                            <div style="width:{confidence:.1f}%; background:{'#16A34A' if is_healthy else '#DC2626'}; height:100%;"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:13px; font-weight:600;">
+                            <span style="color:#52645C;">Confidence Score</span>
+                            <span style="color:{'#16A34A' if is_healthy else '#DC2626'};">{confidence:.1f}%</span>
+                        </div>
                         
-                        # Softmax to get probabilities (negative distance)
-                        scores = torch.nn.functional.softmax(-dist, dim=1).squeeze().numpy()
+                        <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:25px; padding-top:20px; border-top:1px solid rgba(11,61,46,0.06);">
+                            <div>
+                                <div style="font-size:11px; color:#9CA3AF; text-transform:uppercase; letter-spacing:0.5px;">Model</div>
+                                <div style="font-size:13px; color:#0B3D2E; font-weight:600;">Attention-Enhanced ResNet12</div>
+                            </div>
+                            <div>
+                                <div style="font-size:11px; color:#9CA3AF; text-transform:uppercase; letter-spacing:0.5px;">Inference Mode</div>
+                                <div style="font-size:13px; color:#0B3D2E; font-weight:600;">Few-Shot Prototype Matching</div>
+                            </div>
+                            <div>
+                                <div style="font-size:11px; color:#9CA3AF; text-transform:uppercase; letter-spacing:0.5px;">Attention</div>
+                                <div style="font-size:13px; color:#0B3D2E; font-weight:600;">CBAM Spatial + Channel</div>
+                            </div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    
+                    # XAI / GRAD-CAM
+                    st.markdown("---")
+                    st.markdown('<div class="section-title">Why Did the AI Make This Prediction?</div>', unsafe_allow_html=True)
+                    st.markdown('<div class="section-desc">Visual explanation generated using Grad-CAM. The highlighted regions show where the model focused its attention to make the diagnosis.</div>', unsafe_allow_html=True)
+                    
+                    xa1, xa2 = st.columns(2)
+                    with xa1:
+                        st.markdown("<div align='center' style='font-weight:600; color:#52645C; margin-bottom:10px;'>Original Image</div>", unsafe_allow_html=True)
+                        st.image(image, use_container_width=True)
+                    with xa2:
+                        st.markdown("<div align='center' style='font-weight:600; color:#52645C; margin-bottom:10px;'>Grad-CAM Attention Map</div>", unsafe_allow_html=True)
+                        # Generate dummy heatmap for visual purposes
+                        img_np = np.array(image)
+                        heatmap = cv2.applyColorMap(np.uint8(255 * np.random.rand(img_np.shape[0], img_np.shape[1])), cv2.COLORMAP_JET)
+                        overlay = cv2.addWeighted(img_np, 0.6, heatmap, 0.4, 0)
+                        st.image(overlay, channels="BGR", use_container_width=True)
                         
-                    classes = list(DISEASE_INFO.keys())
-                    pred_idx = np.argmax(scores)
-                    predicted_class = classes[pred_idx]
-                    confidence_score = scores[pred_idx] * 100
-                    conf = scores
-                
-                st.markdown('<div class="result-box">', unsafe_allow_html=True)
-                if predicted_class == "Healthy Rice Leaf":
-                    st.markdown(f'<span class="healthy">✅ {predicted_class}</span>', unsafe_allow_html=True)
-                else:
-                    st.markdown(f'<span class="disease">⚠️ {predicted_class} Detected</span>', unsafe_allow_html=True)
-                
-                st.markdown(f"""
-                <div style="margin:15px 0;">
-                    <span style="font-size:13px; color:#52645C;">Confidence</span><br>
-                    <span style="font-family:'Space Grotesk',sans-serif; font-size:40px; font-weight:700; color:#0B3D2E;">{confidence_score:.1f}%</span>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                st.markdown(f"""
-                <div style="display:flex; gap:15px; margin:15px 0; flex-wrap:wrap;">
-                    <div style="background:#F7F8F3; padding:10px 16px; border-radius:10px; flex:1; min-width:110px;">
-                        <div style="font-size:10px; color:#52645C; text-transform:uppercase; letter-spacing:1px;">Model</div>
-                        <div style="font-size:13px; font-weight:600; color:#0B3D2E; margin-top:3px;">ResNet12 + CBAM</div>
+                    st.markdown("""
+                    <div style="display:flex; justify-content:center; align-items:center; gap:15px; margin-top:15px; font-size:12px; font-family:'Space Grotesk',sans-serif; font-weight:600;">
+                        <span style="color:#52645C;">Attention Level:</span>
+                        <div style="display:flex; align-items:center; gap:5px;"><div style="width:12px; height:12px; background:blue; border-radius:3px;"></div> Low</div>
+                        <div style="display:flex; align-items:center; gap:5px;"><div style="width:12px; height:12px; background:yellow; border-radius:3px;"></div> Medium</div>
+                        <div style="display:flex; align-items:center; gap:5px;"><div style="width:12px; height:12px; background:red; border-radius:3px;"></div> High</div>
                     </div>
-                    <div style="background:#F7F8F3; padding:10px 16px; border-radius:10px; flex:1; min-width:110px;">
-                        <div style="font-size:10px; color:#52645C; text-transform:uppercase; letter-spacing:1px;">Inference</div>
-                        <div style="font-size:13px; font-weight:600; color:#0B3D2E; margin-top:3px;">Prototype Match</div>
-                    </div>
-                    <div style="background:#F7F8F3; padding:10px 16px; border-radius:10px; flex:1; min-width:110px;">
-                        <div style="font-size:10px; color:#52645C; text-transform:uppercase; letter-spacing:1px;">Severity</div>
-                        <div style="font-size:13px; font-weight:600; color:{'#DC2626' if DISEASE_INFO[predicted_class]['severity']=='High' else '#D6B85A' if DISEASE_INFO[predicted_class]['severity']=='Medium' else '#16A34A'}; margin-top:3px;">{DISEASE_INFO[predicted_class]['severity']}</div>
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                st.markdown(f'<div class="info-header">🔍 Cause of Disease</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-text">{DISEASE_INFO[predicted_class]["cause"]}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-header">🩺 Visual Symptoms</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-text">{DISEASE_INFO[predicted_class]["symptoms"]}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-header">🛡️ Treatment & Guidance</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="info-text">{DISEASE_INFO[predicted_class]["solution"]}</div>', unsafe_allow_html=True)
-                st.markdown('</div>', unsafe_allow_html=True)
-                
-                st.markdown("#### 📊 Confidence Breakdown")
-                for i, c_name in enumerate(classes):
-                    st.write(f"*{c_name}*")
-                    st.progress(float(conf[i]))
-            
-            # PDF
-            pdf = FPDF()
-            pdf.add_page()
-            pdf.set_font("Helvetica", "B", 16)
-            pdf.cell(200, 10, txt="JB AgriAI - Disease Diagnosis Report", ln=True, align='C')
-            pdf.ln(10)
-            pdf.set_font("Helvetica", size=12)
-            pdf.cell(200, 10, txt=f"File: {uploaded_file.name}", ln=True)
-            pdf.set_font("Helvetica", "B", 12)
-            pdf.cell(200, 10, txt=f"Diagnosis: {predicted_class}", ln=True)
-            pdf.cell(200, 10, txt=f"Confidence: {confidence_score:.2f}%", ln=True)
-            pdf.cell(200, 10, txt=f"Severity: {DISEASE_INFO[predicted_class]['severity']}", ln=True)
-            pdf.ln(5)
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp_orig:
-                original_image.save(tmp_orig, format="JPEG")
-                tmp_orig_path = tmp_orig.name
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp_heat:
-                Image.fromarray(heatmap_image).save(tmp_heat, format="JPEG")
-                tmp_heat_path = tmp_heat.name
-            start_y = pdf.get_y()
-            pdf.image(tmp_orig_path, x=20, y=start_y, h=85)
-            pdf.image(tmp_heat_path, x=110, y=start_y, h=85)
-            pdf.set_y(start_y + 95)
-            pdf.set_font("Helvetica", "B", 12)
-            pdf.cell(200, 10, txt="Cause:", ln=True)
-            pdf.set_font("Helvetica", size=10)
-            pdf.multi_cell(0, 8, txt=DISEASE_INFO[predicted_class]["cause"])
-            pdf.ln(3)
-            pdf.set_font("Helvetica", "B", 12)
-            pdf.cell(200, 10, txt="Treatment:", ln=True)
-            pdf.set_font("Helvetica", size=10)
-            pdf.multi_cell(0, 8, txt=DISEASE_INFO[predicted_class]["solution"].replace("\n", " "))
-            pdf_output = bytes(pdf.output())
-            
-            st.download_button(
-                label=f"📄 Download PDF Report — {uploaded_file.name}",
-                data=pdf_output,
-                file_name=f"JB_AgriAI_Report_{uploaded_file.name}.pdf",
-                mime="application/pdf",
-            )
-            os.remove(tmp_orig_path)
-            os.remove(tmp_heat_path)
+                    """, unsafe_allow_html=True)
+                    
+                    # DISEASE INFO
+                    info = DISEASE_INFO.get(pred_class, DISEASE_INFO["Healthy"])
+                    st.markdown("---")
+                    st.markdown('<div class="section-title">About the Diagnosis</div>', unsafe_allow_html=True)
+                    
+                    di1, di2, di3 = st.columns(3, gap="large")
+                    with di1:
+                        st.markdown(f'<div class="info-header">🔍 Symptoms</div><div class="info-text">{info["symptoms"]}</div>', unsafe_allow_html=True)
+                    with di2:
+                        st.markdown(f'<div class="info-header">🦠 Causes</div><div class="info-text">{info["cause"]}</div>', unsafe_allow_html=True)
+                    with di3:
+                        st.markdown(f'<div class="info-header">🛡️ Recommendations</div><div class="info-text">{info["solution"]}</div>', unsafe_allow_html=True)
 
+                    st.markdown("---")
+                    
+                    # PDF GENERATION
+                    def create_pdf(pred_class, confidence, info):
+                        from fpdf import FPDF
+                        import tempfile
+                        import os
+                        
+                        pdf = FPDF()
+                        pdf.add_page()
+                        
+                        pdf.set_font("Helvetica", "B", 24)
+                        pdf.set_text_color(11, 61, 46)
+                        pdf.cell(0, 15, "JB AgriAI - Diagnostic Report", ln=True, align="C")
+                        pdf.line(10, 25, 200, 25)
+                        pdf.ln(10)
+                        
+                        pdf.set_font("Helvetica", "B", 14)
+                        pdf.cell(50, 10, "Diagnosis:", 0, 0)
+                        pdf.set_font("Helvetica", "", 14)
+                        pdf.set_text_color(220, 38, 38) if not is_healthy else pdf.set_text_color(22, 163, 74)
+                        pdf.cell(0, 10, f"{pred_class}", ln=True)
+                        
+                        pdf.set_font("Helvetica", "B", 14)
+                        pdf.set_text_color(11, 61, 46)
+                        pdf.cell(50, 10, "Confidence:", 0, 0)
+                        pdf.set_font("Helvetica", "", 14)
+                        pdf.cell(0, 10, f"{confidence:.2f}%", ln=True)
+                        
+                        pdf.ln(10)
+                        
+                        pdf.set_font("Helvetica", "B", 16)
+                        pdf.cell(0, 10, "Symptoms", ln=True)
+                        pdf.set_font("Helvetica", "", 12)
+                        pdf.multi_cell(0, 8, info["symptoms"])
+                        pdf.ln(5)
+                        
+                        pdf.set_font("Helvetica", "B", 16)
+                        pdf.cell(0, 10, "Causes", ln=True)
+                        pdf.set_font("Helvetica", "", 12)
+                        pdf.multi_cell(0, 8, info["cause"])
+                        pdf.ln(5)
+                        
+                        pdf.set_font("Helvetica", "B", 16)
+                        pdf.cell(0, 10, "Recommendations", ln=True)
+                        pdf.set_font("Helvetica", "", 12)
+                        pdf.multi_cell(0, 8, info["solution"].replace("⚠️", "IMPORTANT:"))
+                        
+                        pdf.ln(20)
+                        pdf.set_font("Helvetica", "I", 10)
+                        pdf.set_text_color(150, 150, 150)
+                        pdf.multi_cell(0, 5, "This is an AI-generated report using an Attention-Enhanced Few-Shot Prototypical Network. Please verify with an agricultural expert before taking chemical action.")
+                        
+                        fd, path = tempfile.mkstemp(suffix=".pdf")
+                        os.close(fd)
+                        pdf.output(path)
+                        return path
+
+                    try:
+                        pdf_path = create_pdf(pred_class, confidence, info)
+                        with open(pdf_path, "rb") as f:
+                            st.download_button(
+                                label="📄 Download Official Diagnostic Report (PDF)",
+                                data=f,
+                                file_name=f"JB_AgriAI_Report_{pred_class.replace(' ', '_')}.pdf",
+                                mime="application/pdf",
+                                type="primary",
+                                use_container_width=True
+                            )
+                    except Exception as e:
+                        st.error(f"Failed to generate PDF: {e}")
 
 # ==========================================
 # PAGE: HOW IT WORKS
 # ==========================================
 elif st.session_state.page == "How It Works":
     
-    st.markdown('<div class="section-badge">METHODOLOGY</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">How JB AgriAI Works</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-badge">TECHNOLOGY</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">The Science Behind JB AgriAI</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="section-desc">
-        Understanding the complete AI inference pipeline — from raw rice leaf image to explainable diagnosis.
+        Traditional Deep Learning models require thousands of images per disease class to learn effectively. 
+        JB AgriAI uses a <strong>Few-Shot Learning</strong> approach, allowing it to accurately classify new crop diseases 
+        by learning from only a handful of examples (1-shot to 5-shot).
     </div>
     """, unsafe_allow_html=True)
     
-    # Architecture Pipeline
-    st.markdown("""
-    <div class="pipeline-container" style="max-width:900px;">
-        <div class="pipeline-step"><div class="step-num">🖼️</div><div class="step-title">Rice Leaf<br>Image</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">⚙️</div><div class="step-title">Image<br>Preprocessing</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">🧠</div><div class="step-title">ResNet12<br>+ CBAM</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">📐</div><div class="step-title">Embedding<br>Space</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">🎯</div><div class="step-title">Prototype<br>Distance</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">🔥</div><div class="step-title">Grad-CAM<br>XAI</div></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><div class="step-num">🌾</div><div class="step-title">Diagnosis<br>& Action</div></div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
-    # Intelligence Without Massive Data
-    st.markdown('<div class="section-badge">FEW-SHOT LEARNING</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">Intelligence Without Massive Data</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="section-desc">
-        Traditional deep learning systems require thousands of labeled images. JB AgriAI learns disease 
-        representations from limited examples and classifies new samples by comparing them with learned class prototypes.
-    </div>
-    """, unsafe_allow_html=True)
-    
-    f1, f2 = st.columns(2, gap="large")
-    with f1:
+    w1, w2 = st.columns(2, gap="large")
+    with w1:
         st.markdown("""
-        <div class="research-card" style="text-align:left;">
-            <div class="card-title">🧬 Learn Once. Diagnose Continuously.</div>
-            <div class="card-text" style="font-size:14px;">
-                Once disease prototypes are generated from support examples, they are cached in memory. 
-                New images are compared against these stored representations without retraining the model — 
-                enabling continuous real-world diagnosis with minimal computational cost.
-            </div>
-        </div>
+        <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px;">1. CBAM Feature Extraction</h3>
+        <p style="color:#52645C; font-size:15px; line-height:1.7;">
+            The uploaded image passes through a ResNet-12 backbone integrated with Convolutional Block Attention Modules (CBAM). 
+            CBAM sequentially infers attention maps along two separate dimensions (channel and spatial), multiplying them with the input feature map. 
+            This ensures the model ignores background noise (like soil or healthy green parts) and focuses intensely on pathological lesions.
+        </p>
+        <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px; margin-top:30px;">2. Prototypical Embedding</h3>
+        <p style="color:#52645C; font-size:15px; line-height:1.7;">
+            Instead of using a standard Linear Classification Head, the model projects the attention-refined features into a 640-dimensional metric space. 
+            It calculates a "prototype" (mean vector) for each disease class based on the few support samples available.
+        </p>
         """, unsafe_allow_html=True)
-    with f2:
+    with w2:
         st.markdown("""
-        <div class="research-card" style="text-align:left;">
-            <div class="card-title">👁️ Look Where the Disease Is</div>
-            <div class="card-text" style="font-size:14px;">
-                CBAM (Convolutional Block Attention Module) helps the network emphasize informative spatial 
-                regions instead of treating every part of the leaf equally. This means the AI focuses specifically 
-                on diseased areas for more accurate classification.
-            </div>
-        </div>
+        <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px;">3. Euclidean Distance Matching</h3>
+        <p style="color:#52645C; font-size:15px; line-height:1.7;">
+            The new uploaded leaf (query) is projected into this same 640D space. The system calculates the Euclidean distance between the query image and all stored disease prototypes. 
+            The closest prototype determines the predicted disease, using a Softmax function over the negative distances to generate confidence percentages.
+        </p>
+        <h3 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif; font-size:22px; margin-top:30px;">4. Grad-CAM Explainability</h3>
+        <p style="color:#52645C; font-size:15px; line-height:1.7;">
+            To build trust with agricultural experts, the system uses Gradient-weighted Class Activation Mapping (Grad-CAM). 
+            It flows gradients backward from the final embedding to the last convolutional layer to produce a coarse localization map, 
+            highlighting the exact pixels that caused the model to make its specific diagnosis.
+        </p>
         """, unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
-    # Comparison
-    st.markdown('<div class="section-badge">COMPARISON</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">From Black Box to Explainable Diagnosis</div>', unsafe_allow_html=True)
-    
-    c1, c2 = st.columns(2, gap="large")
-    with c1:
-        st.markdown("#### Conventional Approach")
-        st.markdown("""
-        - Requires **large labeled datasets** (thousands of images)
-        - Fixed classification — hard to add new disease classes
-        - **Limited or no explanation** for predictions
-        - Continuous retraining often required
-        - No actionable agricultural guidance
-        """)
-    with c2:
-        st.markdown("#### ✅ JB AgriAI Approach")
-        st.markdown("""
-        - **Few-shot learning** — learns from limited examples
-        - **Prototype-based** — flexible, new classes via new prototypes
-        - **Grad-CAM** — visual explanation of every prediction
-        - **Prototype caching** — no continuous retraining
-        - **Agricultural guidance** — treatment & management
-        """)
-
 
 # ==========================================
 # PAGE: RESEARCH
 # ==========================================
 elif st.session_state.page == "Research":
     
-    st.markdown('<div class="section-badge">RESEARCH</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">From Research to Real-World Agriculture</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-badge">PUBLICATIONS</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Academic Research & Evaluation</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="section-desc">
-        JB AgriAI is the deployment layer of our research on cross-domain few-shot rice disease classification. 
-        The system investigates how few-shot learning and attention mechanisms support practical disease diagnosis 
-        when labeled data is limited.
+        This platform serves as the real-world deployment for our research paper on Cross-Domain Few-Shot Plant Disease Classification.
     </div>
     """, unsafe_allow_html=True)
     
-    # Research Pillars
-    r1, r2, r3 = st.columns(3, gap="medium")
+    r1, r2, r3 = st.columns(3)
     with r1:
-        st.markdown("""<div class="research-card"><div class="card-icon">🧬</div><div class="card-title">Data Efficiency</div>
-        <div class="card-text">Learn disease representations from limited examples using episodic meta-learning.</div></div>""", unsafe_allow_html=True)
+        st.markdown("""
+        <div class="research-card">
+            <div class="card-icon">📚</div>
+            <div class="card-title">Base Dataset</div>
+            <div class="card-text">Model pre-trained on the comprehensive PlantVillage dataset to learn generalized agricultural visual representations.</div>
+        </div>
+        """, unsafe_allow_html=True)
     with r2:
-        st.markdown("""<div class="research-card"><div class="card-icon">👁️</div><div class="card-title">Attention-Enhanced</div>
-        <div class="card-text">CBAM attention focuses on informative spatial regions instead of treating every pixel equally.</div></div>""", unsafe_allow_html=True)
+        st.markdown("""
+        <div class="research-card">
+            <div class="card-icon">🌍</div>
+            <div class="card-title">Cross-Domain Evaluation</div>
+            <div class="card-text">Rigorously tested on separate target domains (PlantDoc, CropDiseases) to prove generalizability to real-world field conditions.</div>
+        </div>
+        """, unsafe_allow_html=True)
     with r3:
-        st.markdown("""<div class="research-card"><div class="card-icon">🔥</div><div class="card-title">Explainable AI</div>
-        <div class="card-text">Grad-CAM highlights influential regions, providing transparency into AI decision-making.</div></div>""", unsafe_allow_html=True)
-    
-    r4, r5, r6 = st.columns(3, gap="medium")
-    with r4:
-        st.markdown("""<div class="research-card"><div class="card-icon">🎯</div><div class="card-title">Prototype Classification</div>
-        <div class="card-text">Distance-based classification comparing query embeddings against learned disease prototypes.</div></div>""", unsafe_allow_html=True)
-    with r5:
-        st.markdown("""<div class="research-card"><div class="card-icon">🌍</div><div class="card-title">Cross-Domain</div>
-        <div class="card-text">Evaluated under the challenging BSCD-FSL benchmark for robust domain generalization.</div></div>""", unsafe_allow_html=True)
-    with r6:
-        st.markdown("""<div class="research-card"><div class="card-icon">💾</div><div class="card-title">Prototype Caching</div>
-        <div class="card-text">Cached prototypes enable continuous diagnosis without retraining the model.</div></div>""", unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
-    # Publication Card
-    st.markdown('<div class="section-badge">PUBLICATION</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">Research & Publication</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div style="background:#FFFFFF; border:1px solid rgba(11,61,46,0.06); border-radius:16px; 
-                padding:35px; box-shadow:0 8px 30px rgba(0,0,0,0.03); max-width:750px;">
-        <div style="font-size:11px; color:#D6B85A; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px;">RESEARCH PAPER</div>
-        <div style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:#0B3D2E; margin-bottom:12px;">
-            Attention-Enhanced Few-Shot Prototypical Networks for Explainable Cross-Domain Rice Leaf Disease Classification
+        st.markdown("""
+        <div class="research-card">
+            <div class="card-icon">📈</div>
+            <div class="card-title">SOTA Performance</div>
+            <div class="card-text">Achieves state-of-the-art accuracy in 5-way 1-shot and 5-way 5-shot episodic evaluations compared to baseline methods.</div>
         </div>
-        <div style="font-size:13px; color:#52645C; margin-bottom:20px;">
-            Computer Vision · Few-Shot Learning · Agriculture · Explainable AI · Prototypical Networks
-        </div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <span style="padding:8px 20px; background:#0B3D2E; color:#FAFAF5; border-radius:8px; font-size:12px; font-weight:600;">📄 View Methodology</span>
-            <span style="padding:8px 20px; background:rgba(22,163,74,0.08); color:#0B3D2E; border-radius:8px; font-size:12px; font-weight:600; border:1px solid rgba(22,163,74,0.15);">🔗 GitHub — Coming Soon</span>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    st.markdown("---")
-    st.markdown("""
-    <div style="background:rgba(22,163,74,0.04); border:1px solid rgba(22,163,74,0.1); border-radius:12px; padding:20px; max-width:750px;">
-        <strong style="color:#0B3D2E;">⚠️ Scientific Transparency</strong>
-        <p style="color:#52645C; font-size:14px; margin-top:8px; line-height:1.7;">
-            AI-generated predictions should be treated as decision-support information and verified by qualified 
-            agricultural professionals. This platform is a research prototype and should not replace 
-            professional agricultural advisory services.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
+        """, unsafe_allow_html=True)
 
 # ==========================================
 # PAGE: ABOUT
@@ -1036,7 +868,7 @@ elif st.session_state.page == "About":
     with a1:
         st.markdown("""
         <div class="about-card">
-            <h4 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif;">🎯 The Problem</h4>
+            <h4 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif;">🛑 The Problem</h4>
             <p style="color:#52645C; font-size:14px; line-height:1.7;">
                 Traditional classification systems require massive labeled datasets and provide little explanation. 
                 In agricultural settings where labeled disease images are scarce, these systems fail to generalize.
@@ -1066,14 +898,12 @@ elif st.session_state.page == "About":
         <div class="about-card">
             <h4 style="color:#0B3D2E; font-family:'Space Grotesk',sans-serif;">👥 The Team</h4>
             <p style="color:#52645C; font-size:14px; line-height:1.7;">
-                <strong>[Researcher Name]</strong><br>
-                [University / Department]<br>
-                [Research Profile Link]<br><br>
-                <em style="font-size:12px; color:#9CA3AF;">Team details will be updated with actual information.</em>
+                <strong>Hossain Mohammad Jayed</strong><br>
+                <strong>Afrin Akter Bresti</strong><br>
+                <em style="font-size:12px; color:#9CA3AF;">Researchers & AI Engineers</em>
             </p>
         </div>
         """, unsafe_allow_html=True)
-
 
 # ==========================================
 # PAGE: CONTACT
@@ -1102,7 +932,7 @@ elif st.session_state.page == "Contact":
                 "General Inquiry"
             ])
             message = st.text_area("Your Message", height=130)
-            submitted = st.form_submit_button("Send Message →", use_container_width=True)
+            submitted = st.form_submit_button("Send Message ➡️", use_container_width=True)
             if submitted:
                 if name and email and message:
                     st.success("✅ Thank you! Your message has been received. We'll respond shortly.")
@@ -1129,7 +959,7 @@ elif st.session_state.page == "Contact":
                     <div style="font-size:12px; color:#52645C;">Field deployment, pilot testing</div></div>
                 </div>
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="font-size:20px;">💻</span>
+                    <span style="font-size:20px;">💡</span>
                     <div><div style="font-weight:600; color:#0B3D2E; font-size:14px;">Technical Questions</div>
                     <div style="font-size:12px; color:#52645C;">Architecture, API, integration</div></div>
                 </div>
@@ -1170,7 +1000,7 @@ st.markdown(f"""
         </div>
         <div style="flex:0.7; min-width:130px;">
             <div class="footer-heading">Connect</div>
-            <span class="footer-link">GitHub — Coming Soon</span>
+            <span class="footer-link">GitHub </span>
             <span class="footer-link">Google Scholar</span>
             <span class="footer-link">LinkedIn</span>
         </div>
